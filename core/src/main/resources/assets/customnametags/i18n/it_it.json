@@ -1,0 +1,46 @@
+{
+    "customnametags": {
+        "settings": {
+            "name": "",
+            "enabled": {
+                "name": ""
+            },
+            "openNameTags": {
+                "name": ""
+            },
+            "checkForStringInTabList": {
+                "name": "",
+                "description": ""
+            },
+            "hideNameTagBackground": {
+                "name": ""
+            },
+            "color": {
+                "name": ""
+            },
+            "header": {
+                "background": {
+                    "name": ""
+                }
+            }
+        },
+        "gui": {
+            "manage": {
+                "add": "",
+                "name": "",
+                "custom": {
+                    "name": ""
+                },
+                "enabled": {
+                    "name": ""
+                },
+                "replace": {
+                    "name": ""
+                },
+                "remove": {
+                    "title": ""
+                }
+            }
+        }
+    }
+}
