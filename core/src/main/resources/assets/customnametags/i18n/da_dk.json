@@ -1,1 +1,23 @@
-{}
+{
+    "customnametags": {
+        "settings": {
+            "name": "BrugerdefineretNavneskilte",
+            "enabled": {
+                "name": "Aktiveret"
+            },
+            "header": {
+                "background": {
+                    "name": "Baggrund"
+                }
+            }
+        },
+        "gui": {
+            "manage": {
+                "name": "Minecraft Brugernavn",
+                "enabled": {
+                    "name": "Aktiveret"
+                }
+            }
+        }
+    }
+}
