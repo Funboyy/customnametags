@@ -9,6 +9,9 @@
                 "background": {
                     "name": "Baggrund"
                 }
+            },
+            "openNameTags": {
+                "name": "Rediger brugerdefinerede navneskilte"
             }
         },
         "gui": {
