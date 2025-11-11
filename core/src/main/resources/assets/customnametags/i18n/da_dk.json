@@ -12,6 +12,12 @@
             },
             "openNameTags": {
                 "name": "Rediger brugerdefinerede navneskilte"
+            },
+            "checkForStringInTabList": {
+                "name": "Tjek for navn i tablisten"
+            },
+            "color": {
+                "name": "Baggrundsfarve"
             }
         },
         "gui": {
@@ -19,6 +25,9 @@
                 "name": "Minecraft Brugernavn",
                 "enabled": {
                     "name": "Aktiveret"
+                },
+                "custom": {
+                    "name": "Nyt navn for denne Spiller"
                 }
             }
         }
