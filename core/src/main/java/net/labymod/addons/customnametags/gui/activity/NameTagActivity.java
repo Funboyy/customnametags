@@ -364,11 +364,6 @@ public class NameTagActivity extends Activity {
   }
 
   @Override
-  public <T extends LabyScreen> @Nullable T renew() {
-    return null;
-  }
-
-  @Override
   public void onCloseScreen() {
     super.onCloseScreen();
     if (this.updateRequired) {
