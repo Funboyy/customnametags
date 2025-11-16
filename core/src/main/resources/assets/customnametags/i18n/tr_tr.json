@@ -1,1 +1,17 @@
-{}
+{
+    "customnametags": {
+        "settings": {
+            "name": "Özelleştirilmiş İsim Etiketleri",
+            "enabled": {
+                "name": "Aktif"
+            },
+            "openNameTags": {
+                "name": "Özelleştirilmiş İsim Etiketlerini Düzenle"
+            },
+            "checkForStringInTabList": {
+                "name": "Tablist’te İsmi Kontrol Et",
+                "description": "Bu, çok sayıda özel ad etiketi yapılandırıldığında çok fazla kaynak tüketebilir, ancak CustomNameTags’in her sunucuda amaçlandığı gibi çalışmasını sağlar. Bunu inaktif yapmak daha iyi performansla sonuçlanabilir, ancak CustomNameTags artık tablits üzerinde tablitsi çok fazla değiştiren sunucularda (örneğin Hypixel SkyBlock’ta) çalışmaz."
+            }
+        }
+    }
+}
