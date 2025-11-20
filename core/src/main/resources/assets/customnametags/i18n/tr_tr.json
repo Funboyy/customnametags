@@ -23,6 +23,24 @@
                     "name": "Arka plan"
                 }
             }
+        },
+        "gui": {
+            "manage": {
+                "add": "Yeni bir özelleştirilmiş İsim Etiketi ekle",
+                "name": "Minecraft Kullanıcı Adı",
+                "enabled": {
+                    "name": "Aktif"
+                },
+                "custom": {
+                    "name": "Oyuncuya lakap tak"
+                },
+                "remove": {
+                    "title": "Bu girdiyi gerçekten kaldırmak istiyor musunuz?"
+                },
+                "replace": {
+                    "name": "Önek ve Sonekleri Değiştir"
+                }
+            }
         }
     }
 }
