@@ -90,4 +90,9 @@ public final class CustomNameTagsConfiguration extends AddonConfig {
     this.customTags.entrySet()
         .removeIf(entry -> entry.getKey().isEmpty() || entry.getValue().getCustomName().isEmpty());
   }
+
+  @Override
+  public int getConfigVersion() {
+    return 2;
+  }
 }

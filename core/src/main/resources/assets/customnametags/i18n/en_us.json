@@ -27,6 +27,7 @@
     "gui": {
       "manage": {
         "add": "Add a new custom Name Tag",
+        "edit": "Edit a custom Name Tag",
         "name": "Minecraft Username",
         "custom": {
           "name": "New Name for this Player"
@@ -38,7 +39,8 @@
           "name": "Replace Prefix & Suffix"
         },
         "remove": {
-          "title": "Do you really want to remove this entry?"
+          "title": "Do you really want to remove this entry?",
+          "description": "Do you really want to delete the custom nametag for %s? This action can not be undone!"
         }
       }
     }

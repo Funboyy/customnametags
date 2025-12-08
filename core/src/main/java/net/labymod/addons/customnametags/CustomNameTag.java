@@ -18,30 +18,36 @@ package net.labymod.addons.customnametags;
 
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.serializer.legacy.LegacyComponentSerializer;
+import org.jetbrains.annotations.NotNull;
 
 public class CustomNameTag {
 
+  public static @NotNull CustomNameTag of(
+      @NotNull String originalName,
+      @NotNull String customName,
+      boolean enabled,
+      boolean replaceScoreboard
+  ) {
+    return new CustomNameTag(originalName, customName, enabled, replaceScoreboard);
+  }
+
+  public static @NotNull CustomNameTag ofDefault() {
+    return CustomNameTag.of("", "", true, false);
+  }
+
+  private String originalName;
   private boolean enabled;
   private String customName;
   private boolean replaceScoreboard;
 
   private transient Component displayName;
 
-  private CustomNameTag(boolean enabled, String customName, boolean replaceScoreboard) {
+  private CustomNameTag(@NotNull String originalName, @NotNull String customName, boolean enabled, boolean replaceScoreboard) {
     this.enabled = enabled;
+    this.originalName = originalName;
     this.customName = customName;
     this.replaceScoreboard = replaceScoreboard;
   }
-
-  public static CustomNameTag create(boolean enabled, String customName,
-      boolean replaceScoreboard) {
-    return new CustomNameTag(enabled, customName, replaceScoreboard);
-  }
-
-  public static CustomNameTag createDefault() {
-    return create(true, "", false);
-  }
-
   public boolean isEnabled() {
     return this.enabled;
   }
@@ -55,7 +61,7 @@ public class CustomNameTag {
   }
 
   public void setCustomName(String customName) {
-    if(this.customName.equals(customName)) {
+    if (this.customName.equals(customName)) {
       return;
     }
 
@@ -77,5 +83,13 @@ public class CustomNameTag {
     }
 
     return this.displayName;
+  }
+
+  public void setOriginalName(String originalName) {
+    this.originalName = originalName;
+  }
+
+  public String getOriginalName() {
+    return this.originalName;
   }
 }

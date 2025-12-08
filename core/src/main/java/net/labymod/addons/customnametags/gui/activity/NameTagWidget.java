@@ -28,11 +28,9 @@ import net.labymod.api.client.gui.screen.widget.widgets.renderer.IconWidget;
 @AutoWidget
 public class NameTagWidget extends SimpleWidget {
 
-  private String userName;
   private CustomNameTag customNameTag;
 
-  public NameTagWidget(String userName, CustomNameTag customNameTag) {
-    this.userName = userName;
+  public NameTagWidget(CustomNameTag customNameTag) {
     this.customNameTag = customNameTag;
   }
 
@@ -45,11 +43,11 @@ public class NameTagWidget extends SimpleWidget {
       this.addId("disabled");
     }
 
-    IconWidget iconWidget = new IconWidget(this.getIconWidget(this.userName));
+    IconWidget iconWidget = new IconWidget(this.getIconWidget(this.customNameTag.getOriginalName()));
     iconWidget.addId("avatar");
     this.addChild(iconWidget);
 
-    ComponentWidget nameWidget = ComponentWidget.component(Component.text(this.userName));
+    ComponentWidget nameWidget = ComponentWidget.component(Component.text(this.customNameTag.getOriginalName()));
     nameWidget.addId("name");
     this.addChild(nameWidget);
 
@@ -59,15 +57,11 @@ public class NameTagWidget extends SimpleWidget {
   }
 
   public Icon getIconWidget(String userName) {
-    return Icon.head(userName.length() == 0 ? "MHF_Question" : userName);
+    return Icon.head(userName.isBlank() ? "MHF_Question" : userName);
   }
 
   public String getUserName() {
-    return this.userName;
-  }
-
-  public void setUserName(String userName) {
-    this.userName = userName;
+    return this.customNameTag.getOriginalName();
   }
 
   public CustomNameTag getCustomTag() {

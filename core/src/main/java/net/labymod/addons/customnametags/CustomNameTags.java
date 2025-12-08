@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 import net.labymod.addons.customnametags.listener.ChatReceiveListener;
+import net.labymod.addons.customnametags.listener.ConfigVersionUpdateListener;
 import net.labymod.addons.customnametags.listener.NameTagBackgroundRenderListener;
 import net.labymod.addons.customnametags.listener.PlayerNameTagRenderListener;
 import net.labymod.api.addon.LabyAddon;
@@ -43,6 +44,11 @@ public class CustomNameTags extends LabyAddon<CustomNameTagsConfiguration> {
 
   public static CustomNameTags get() {
     return instance;
+  }
+
+  @Override
+  protected void preConfigurationLoad() {
+    this.registerListener(new ConfigVersionUpdateListener());
   }
 
   @Override

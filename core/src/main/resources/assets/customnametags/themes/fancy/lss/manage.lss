@@ -1,9 +1,6 @@
 @import super();
 
 .input-container {
-  border-radius: 10;
-  background-color: rgba(50, 50, 50, 100);
-  filter: blur(5);
 
   .custom-preview {
     top: 0;
@@ -20,4 +17,12 @@
   border-radius: 10;
   background-color: rgba(50, 50, 50, 100);
   filter: blur(5);
+}
+
+.checkbox-list {
+  space-between-entries: 2;
+
+  CheckBox {
+    background-color: rgba(0, 0, 0, 100);
+  }
 }
