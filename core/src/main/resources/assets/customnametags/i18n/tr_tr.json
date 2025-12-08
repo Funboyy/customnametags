@@ -11,6 +11,35 @@
             "checkForStringInTabList": {
                 "name": "Tablist’te İsmi Kontrol Et",
                 "description": "Bu, çok sayıda özel ad etiketi yapılandırıldığında çok fazla kaynak tüketebilir, ancak CustomNameTags’in her sunucuda amaçlandığı gibi çalışmasını sağlar. Bunu inaktif yapmak daha iyi performansla sonuçlanabilir, ancak CustomNameTags artık tablits üzerinde tablitsi çok fazla değiştiren sunucularda (örneğin Hypixel SkyBlock’ta) çalışmaz."
+            },
+            "hideNameTagBackground": {
+                "name": "İsim Etiketi Arka Planını Gizle"
+            },
+            "color": {
+                "name": "Arka Plan Rengi"
+            },
+            "header": {
+                "background": {
+                    "name": "Arka plan"
+                }
+            }
+        },
+        "gui": {
+            "manage": {
+                "add": "Yeni bir özelleştirilmiş İsim Etiketi ekle",
+                "name": "Minecraft Kullanıcı Adı",
+                "enabled": {
+                    "name": "Aktif"
+                },
+                "custom": {
+                    "name": "Oyuncuya lakap tak"
+                },
+                "remove": {
+                    "title": "Bu girdiyi gerçekten kaldırmak istiyor musun?"
+                },
+                "replace": {
+                    "name": "Önek ve Sonekleri Değiştir"
+                }
             }
         }
     }

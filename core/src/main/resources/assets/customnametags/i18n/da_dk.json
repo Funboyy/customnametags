@@ -28,7 +28,8 @@
                 },
                 "custom": {
                     "name": "Nyt navn for denne Spiller"
-                }
+                },
+                "add": "Tilføj et nyt brugerdefineret Navneskilt"
             }
         }
     }
