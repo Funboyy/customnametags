@@ -57,7 +57,7 @@ public class NameTagWidget extends SimpleWidget {
   }
 
   public Icon getIconWidget(String userName) {
-    return Icon.head(userName.isBlank() ? "MHF_Question" : userName);
+    return Icon.head(userName == null || userName.isBlank() ? "MHF_Question" : userName);
   }
 
   public String getUserName() {
