@@ -18,6 +18,7 @@ import net.labymod.api.client.gui.screen.widget.widgets.layout.list.HorizontalLi
 import net.labymod.api.client.gui.screen.widget.widgets.popup.SimpleAdvancedPopup;
 import net.labymod.api.client.gui.screen.widget.widgets.renderer.IconWidget;
 import net.labymod.api.client.render.font.TextColorStripper;
+import net.labymod.api.event.client.gui.screen.playerlist.PlayerListUpdateEvent;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Map;
@@ -75,6 +76,7 @@ public class EditNameTagPopup extends SimpleAdvancedPopup {
           customTags.remove(nameTag.getOriginalName()); //Remove for the case the username was changed (and therefore the key)
           customTags.put(nameTag.getOriginalName(), nameTag);
           onDataChange.accept(nameTag);
+          Laby.fireEvent(new PlayerListUpdateEvent()); //Make sure the changes are displayed immediately
         }
     );
     super.buttons.add(confirmButton);
