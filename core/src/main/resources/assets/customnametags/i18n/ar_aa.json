@@ -2,6 +2,11 @@
     "customnametags": {
         "settings": {
             "name": "أسماء مخصّصة"
+        },
+        "gui": {
+            "manage": {
+                "name": "اسم مستخدم ماينكرافت"
+            }
         }
     }
 }
