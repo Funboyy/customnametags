@@ -38,7 +38,7 @@ public class PlayerNameTagRenderListener {
 
   @Subscribe
   public void onPlayerNameTagRender(PlayerNameTagRenderEvent event) {
-    NetworkPlayerInfo networkPlayerInfo = event.playerInfo();
+    NetworkPlayerInfo networkPlayerInfo = event.getPlayerInfo();
     if (networkPlayerInfo == null) {
       return;
     }

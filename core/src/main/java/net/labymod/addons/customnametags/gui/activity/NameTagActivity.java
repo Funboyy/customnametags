@@ -49,6 +49,7 @@ import net.labymod.api.client.gui.screen.widget.widgets.popup.SimpleAdvancedPopu
 import net.labymod.api.client.gui.screen.widget.widgets.popup.SimpleAdvancedPopup.SimplePopupButton;
 import net.labymod.api.client.gui.screen.widget.widgets.renderer.IconWidget;
 import net.labymod.api.client.render.font.TextColorStripper;
+import net.labymod.api.event.client.gui.screen.playerlist.PlayerListUpdateEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -197,6 +198,7 @@ public class NameTagActivity extends Activity {
             .addButton(SimplePopupButton.confirm(simplePopupButton -> {
               this.addon.configuration().getCustomTags().remove(this.selectedNameTag.getOriginalName());
               this.reload();
+              Laby.fireEvent(new PlayerListUpdateEvent()); //Make sure the changes are displayed immediately
             }))
             .addButton(SimplePopupButton.cancel())
             .build()
