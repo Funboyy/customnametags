@@ -14,10 +14,14 @@
                 "name": "Rediger brugerdefinerede navneskilte"
             },
             "checkForStringInTabList": {
-                "name": "Tjek for navn i tablisten"
+                "name": "Tjek for navn i tablisten",
+                "description": "Dette kan være meget ressourcekrævende, når man har mange brugerdefinerede navnetags konfigureret, men det sikrer, at CustomNameTags fungerer som tilsigtet på alle servere. Deaktivering af dette kan resultere i bedre ydeevne, men CustomNameTags vil ikke længere fungere i fanebladlisten på servere, der ændrer fanebladlisten en masse (for eksempel på Hypixel SkyBlock)."
             },
             "color": {
                 "name": "Baggrundsfarve"
+            },
+            "hideNameTagBackground": {
+                "name": "Skjul navneskiltets baggrund"
             }
         },
         "gui": {
