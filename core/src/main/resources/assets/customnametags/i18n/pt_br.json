@@ -4,6 +4,13 @@
             "enabled": {
                 "name": "Ativado"
             }
+        },
+        "gui": {
+            "manage": {
+                "enabled": {
+                    "name": "Ativado"
+                }
+            }
         }
     }
 }
