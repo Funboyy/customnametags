@@ -15,7 +15,7 @@
             },
             "checkForStringInTabList": {
                 "name": "Tjek for navn i tablisten",
-                "description": "Dette kan være meget ressourcekrævende, når man har mange brugerdefinerede navnetags konfigureret, men det sikrer, at CustomNameTags fungerer som tilsigtet på alle servere. Deaktivering af dette kan resultere i bedre ydeevne, men CustomNameTags vil ikke længere fungere i fanebladlisten på servere, der ændrer fanebladlisten en masse (for eksempel på Hypixel SkyBlock)."
+                "description": "Dette kan være meget ressourcekrævende, når man har mange brugerdefinerede navneskilte konfigureret, men det sikrer, at CustomNameTags fungerer på alle servere som tiltænkt. Deaktivering af dette kan resultere i bedre ydeevne, men CustomNameTags vil ikke længere fungere i tab-listen på servere, der ændrer tab-listen meget (for eksempel på Hypixel SkyBlock)."
             },
             "color": {
                 "name": "Baggrundsfarve"
