@@ -35,11 +35,13 @@
                     "name": "Oyuncuya lakap tak"
                 },
                 "remove": {
-                    "title": "Bu girdiyi gerçekten kaldırmak istiyor musun?"
+                    "title": "Bu girdiyi gerçekten kaldırmak istiyor musun?",
+                    "description": "%s için özel isim etiketini gerçekten silmek istiyor musunuz? Bu işlem geri alınamaz!"
                 },
                 "replace": {
                     "name": "Önek ve Sonekleri Değiştir"
-                }
+                },
+                "edit": "Özel İsim Etiketini Düzenle"
             }
         }
     }
