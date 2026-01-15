@@ -33,7 +33,8 @@
                 "custom": {
                     "name": "Nyt navn for denne Spiller"
                 },
-                "add": "Tilføj et nyt brugerdefineret Navneskilt"
+                "add": "Tilføj et nyt brugerdefineret Navneskilt",
+                "edit": "Rediger et brugerdefineret Navneskilt"
             }
         }
     }
