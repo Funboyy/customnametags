@@ -1,1 +1,9 @@
-{}
+{
+    "customnametags": {
+        "settings": {
+            "enabled": {
+                "name": "Ativado"
+            }
+        }
+    }
+}
