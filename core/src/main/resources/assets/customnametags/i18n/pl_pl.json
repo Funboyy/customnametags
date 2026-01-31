@@ -1,1 +1,28 @@
-{}
+{
+    "customnametags": {
+        "settings": {
+            "name": "CustomNameTags",
+            "enabled": {
+                "name": "Włączone"
+            },
+            "openNameTags": {
+                "name": "Edytuj niestandardowe plakietki"
+            },
+            "color": {
+                "name": "Kolor tła"
+            },
+            "header": {
+                "background": {
+                    "name": "Tło"
+                }
+            }
+        },
+        "gui": {
+            "manage": {
+                "enabled": {
+                    "name": "Włączone"
+                }
+            }
+        }
+    }
+}
