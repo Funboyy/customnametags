@@ -96,6 +96,7 @@ public class CustomNameTags extends LabyAddon<CustomNameTagsConfiguration> {
 
     if (component instanceof TextComponent textComponent) {
       String text = textComponent.getText();
+      Style style = textComponent.style();
 
       int next = text.indexOf(playerName);
       if (next != -1) {
@@ -104,7 +105,10 @@ public class CustomNameTags extends LabyAddon<CustomNameTagsConfiguration> {
         if (next == 0) {
           if (length == playerName.length()) {
             textComponent.text("");
-            component.append(0, customName.get());
+
+            Component customNameComponent = customName.get();
+            customNameComponent.style(customNameComponent.style().merge(style, Strategy.IF_ABSENT_ON_TARGET));
+            component.append(0, customNameComponent);
             return true;
           }
         }
@@ -127,16 +131,27 @@ public class CustomNameTags extends LabyAddon<CustomNameTagsConfiguration> {
             continue;
           }
 
-          // Skip when player name is not at the end and the character after the name is a space
+          // Skip when player name is not at the end and the character after the name is a valid name character
           if (nameEndsAt < length && text.charAt(nameEndsAt) != ' ') {
-            continue;
+            char lastNameChar = text.charAt(nameEndsAt);
+
+            if ((lastNameChar >= 'A' && lastNameChar <= 'Z') ||
+                (lastNameChar >= 'a' && lastNameChar <= 'z') ||
+                (lastNameChar >= '0' && lastNameChar <= '9') ||
+                lastNameChar == '_') {
+              continue;
+            }
           }
 
           if (i > lastNameAt) {
-            component.append(childIndex++, Component.text(text.substring(lastNameAt, i)));
+            Component spacerComponent = Component.text(text.substring(lastNameAt, i));
+            spacerComponent.style(spacerComponent.style().merge(style, Strategy.IF_ABSENT_ON_TARGET));
+            component.append(childIndex++, spacerComponent);
           }
 
-          component.append(childIndex++, customName.get());
+          Component customNameComponent = customName.get();
+          customNameComponent.style(customNameComponent.style().merge(style, Strategy.IF_ABSENT_ON_TARGET));
+          component.append(childIndex++, customNameComponent);
           lastNameAt = nameEndsAt;
 
           // Skip unnecessary loop
@@ -147,7 +162,9 @@ public class CustomNameTags extends LabyAddon<CustomNameTagsConfiguration> {
 
         // no way to properly check for this in chat
         if (lastNameAt < length) {
-          component.append(childIndex, Component.text(text.substring(lastNameAt)));
+          Component spacerComponent = Component.text(text.substring(lastNameAt));
+          spacerComponent.style(spacerComponent.style().merge(style, Strategy.IF_ABSENT_ON_TARGET));
+          component.append(childIndex, spacerComponent);
         }
       }
     }
