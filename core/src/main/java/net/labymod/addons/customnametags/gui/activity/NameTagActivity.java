@@ -18,49 +18,31 @@ package net.labymod.addons.customnametags.gui.activity;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 import net.labymod.addons.customnametags.CustomNameTag;
 import net.labymod.addons.customnametags.CustomNameTags;
 import net.labymod.addons.customnametags.gui.popup.EditNameTagPopup;
 import net.labymod.api.Laby;
 import net.labymod.api.client.component.Component;
-import net.labymod.api.client.component.serializer.legacy.LegacyComponentSerializer;
 import net.labymod.api.client.gui.mouse.MutableMouse;
-import net.labymod.api.client.gui.screen.LabyScreen;
 import net.labymod.api.client.gui.screen.Parent;
 import net.labymod.api.client.gui.screen.activity.Activity;
 import net.labymod.api.client.gui.screen.activity.AutoActivity;
 import net.labymod.api.client.gui.screen.activity.Link;
-import net.labymod.api.client.gui.screen.key.InputType;
-import net.labymod.api.client.gui.screen.key.Key;
 import net.labymod.api.client.gui.screen.key.MouseButton;
-import net.labymod.api.client.gui.screen.widget.Widget;
-import net.labymod.api.client.gui.screen.widget.widgets.ComponentWidget;
-import net.labymod.api.client.gui.screen.widget.widgets.DivWidget;
 import net.labymod.api.client.gui.screen.widget.widgets.input.ButtonWidget;
-import net.labymod.api.client.gui.screen.widget.widgets.input.CheckBoxWidget;
-import net.labymod.api.client.gui.screen.widget.widgets.input.CheckBoxWidget.State;
-import net.labymod.api.client.gui.screen.widget.widgets.input.TextFieldWidget;
 import net.labymod.api.client.gui.screen.widget.widgets.layout.FlexibleContentWidget;
 import net.labymod.api.client.gui.screen.widget.widgets.layout.ScrollWidget;
 import net.labymod.api.client.gui.screen.widget.widgets.layout.list.HorizontalListWidget;
 import net.labymod.api.client.gui.screen.widget.widgets.layout.list.VerticalListWidget;
 import net.labymod.api.client.gui.screen.widget.widgets.popup.SimpleAdvancedPopup;
 import net.labymod.api.client.gui.screen.widget.widgets.popup.SimpleAdvancedPopup.SimplePopupButton;
-import net.labymod.api.client.gui.screen.widget.widgets.renderer.IconWidget;
-import net.labymod.api.client.render.font.TextColorStripper;
 import net.labymod.api.event.client.gui.screen.playerlist.PlayerListUpdateEvent;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 @AutoActivity
 @Link("manage.lss")
 @Link("overview.lss")
 public class NameTagActivity extends Activity {
-
-  private static final Pattern NAME_PATTERN = Pattern.compile("\\w{0,16}");
-  private static final TextColorStripper TEXT_COLOR_STRIPPER = Laby.references()
-      .textColorStripper();
 
   private final CustomNameTags addon;
   private final VerticalListWidget<NameTagWidget> nameTagList;
@@ -71,13 +53,6 @@ public class NameTagActivity extends Activity {
   private ButtonWidget removeButton;
   private ButtonWidget editButton;
 
-  private FlexibleContentWidget inputWidget;
-  private String lastUserName;
-  private String lastCustomName;
-
-  private Action action;
-  private boolean updateRequired;
-
   public NameTagActivity() {
     this.addon = CustomNameTags.get();
 
@@ -87,7 +62,7 @@ public class NameTagActivity extends Activity {
     this.nameTagList = new VerticalListWidget<>();
     this.nameTagList.addId("name-tag-list");
     this.nameTagList.setSelectCallback(nameTagWidget -> {
-      NameTagWidget selectedNameTag = this.nameTagList.session().getSelectedEntry();
+      NameTagWidget selectedNameTag = this.nameTagList.listSession().getSelectedEntry();
       if (selectedNameTag == null
           || selectedNameTag.getCustomTag() != nameTagWidget.getCustomTag()) {
         this.editButton.setEnabled(true);
@@ -109,7 +84,7 @@ public class NameTagActivity extends Activity {
     }
 
     container.addFlexibleContent(new ScrollWidget(this.nameTagList));
-    NameTagWidget selectedEntry = this.nameTagList.session().getSelectedEntry();
+    NameTagWidget selectedEntry = this.nameTagList.listSession().getSelectedEntry();
     if (selectedEntry != null) {
       this.selectedNameTag = selectedEntry.getCustomTag();
     } else {
@@ -134,25 +109,12 @@ public class NameTagActivity extends Activity {
     this.document().addChild(container);
   }
 
-  private String getStrippedText(String text) {
-    text = text.trim();
-    if (text.isEmpty()) {
-      return text;
-    }
-
-    return TEXT_COLOR_STRIPPER.stripColorCodes(text, '&');
-  }
-
   @Override
   public boolean mouseClicked(MutableMouse mouse, MouseButton mouseButton) {
     try {
-      if (this.action != null) {
-        return this.inputWidget.mouseClicked(mouse, mouseButton);
-      }
-
       return super.mouseClicked(mouse, mouseButton);
     } finally {
-      NameTagWidget selectedEntry = this.nameTagList.session().getSelectedEntry();
+      NameTagWidget selectedEntry = this.nameTagList.listSession().getSelectedEntry();
       if (selectedEntry != null) {
         this.selectedNameTag = selectedEntry.getCustomTag();
       } else {
@@ -204,14 +166,6 @@ public class NameTagActivity extends Activity {
             .build()
             .displayInOverlay();
       }
-    }
-  }
-
-  @Override
-  public void onCloseScreen() {
-    super.onCloseScreen();
-    if (this.updateRequired) {
-      this.addon.reloadTabList();
     }
   }
 

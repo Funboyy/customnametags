@@ -17,21 +17,15 @@ import net.labymod.api.client.gui.screen.widget.widgets.layout.FlexibleContentWi
 import net.labymod.api.client.gui.screen.widget.widgets.layout.list.HorizontalListWidget;
 import net.labymod.api.client.gui.screen.widget.widgets.popup.SimpleAdvancedPopup;
 import net.labymod.api.client.gui.screen.widget.widgets.renderer.IconWidget;
-import net.labymod.api.client.render.font.TextColorStripper;
 import net.labymod.api.event.client.gui.screen.playerlist.PlayerListUpdateEvent;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.function.Consumer;
-import java.util.regex.Pattern;
 
 @Link("manage.lss")
 public class EditNameTagPopup extends SimpleAdvancedPopup {
-  private static final Pattern NAME_PATTERN = Pattern.compile("\\w{0,16}");
-  private static final TextColorStripper TEXT_COLOR_STRIPPER = Laby.references()
-      .textColorStripper();
 
-  private String lastUserName;
   private final SimplePopupButton confirmButton;
 
   private TextFieldWidget mcNameInput;
