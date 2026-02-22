@@ -126,19 +126,26 @@ public class CustomNameTags extends LabyAddon<CustomNameTagsConfiguration> {
           // Replace the name multiple times in the same text component
           next = text.indexOf(playerName, nameEndsAt);
 
-          // Skip when player name is not at the start and the character in front of name is a space
-          if (i != 0 && text.charAt(i - 1) != ' ') {
-            continue;
+          // Skip when player name is not at the start and the character in front of the name is a valid name character
+          if (i != 0) {
+            char character = text.charAt(i - 1);
+
+            if ((character >= 'A' && character <= 'Z') ||
+                (character >= 'a' && character <= 'z') ||
+                (character >= '0' && character <= '9') ||
+                character == '_') {
+              continue;
+            }
           }
 
           // Skip when player name is not at the end and the character after the name is a valid name character
-          if (nameEndsAt < length && text.charAt(nameEndsAt) != ' ') {
-            char lastNameChar = text.charAt(nameEndsAt);
+          if (nameEndsAt < length) {
+            char character = text.charAt(nameEndsAt);
 
-            if ((lastNameChar >= 'A' && lastNameChar <= 'Z') ||
-                (lastNameChar >= 'a' && lastNameChar <= 'z') ||
-                (lastNameChar >= '0' && lastNameChar <= '9') ||
-                lastNameChar == '_') {
+            if ((character >= 'A' && character <= 'Z') ||
+                (character >= 'a' && character <= 'z') ||
+                (character >= '0' && character <= '9') ||
+                character == '_') {
               continue;
             }
           }
