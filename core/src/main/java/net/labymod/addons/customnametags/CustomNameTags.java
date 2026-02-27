@@ -201,6 +201,13 @@ public class CustomNameTags extends LabyAddon<CustomNameTagsConfiguration> {
         Style style = component.style();
         component = LegacyComponentSerializer.legacySection().deserialize(text);
         component.style(component.style().merge(style, Strategy.IF_ABSENT_ON_TARGET));
+
+        if (!children.isEmpty()) {
+          children.addFirst(component);
+
+          component = Component.text("");
+          component.setChildren(children);
+        }
       }
     }
 
