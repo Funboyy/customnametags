@@ -34,7 +34,13 @@
                     "name": "Nyt navn for denne Spiller"
                 },
                 "add": "Tilføj et nyt brugerdefineret Navneskilt",
-                "edit": "Rediger et brugerdefineret Navneskilt"
+                "edit": "Rediger et brugerdefineret Navneskilt",
+                "replace": {
+                    "name": "Erstat præfiks og suffiks"
+                },
+                "remove": {
+                    "description": "Vil du virkelig slette det brugerdefinerede navneskilt for %s? Denne handling kan ikke fortrydes!"
+                }
             }
         }
     }
